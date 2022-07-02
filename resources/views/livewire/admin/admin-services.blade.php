@@ -83,7 +83,7 @@
                      <tr>
                         <td>{{ $service->id }}</td>
                         <td>{{ $service->name }}</td>
-                        <td>{{ $service->category->name }}</td>
+                      
                         <td>
                            @if($service->status)
                               oui

@@ -7,7 +7,7 @@ use App\Models\Service;
 use Livewire\Component;
 use App\Models\ServiceCategory;
 
-class HomeComponent extends Component
+class HomeComponent extends Component   
 {
     public function render()
     {

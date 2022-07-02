@@ -26,6 +26,7 @@
 	<link rel="stylesheet" href="{{asset('rocketassets/assets/css/dark-theme.css')}}" />
 	<link rel="stylesheet" href="{{asset('rocketassets/assets/css/semi-dark.css')}}" />
 	<link rel="stylesheet" href="{{asset('rocketassets/assets/css/header-colors.css')}}" />
+	@livewireStyles
 	<title>JoinUs - Service Provider Dashboard</title>
 </head>
 
@@ -234,16 +235,22 @@
 					</div>
 					<div class="user-box dropdown">
 						<a class="d-flex align-items-center nav-link dropdown-toggle dropdown-toggle-nocaret" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-							<img src="{{asset('rocketassets/assets/images/avatars/avatar-2.png')}}" class="user-img" alt="user avatar">
-							<div class="user-info ps-3">
-								<p class="user-name mb-0">Seini Abaya</p>
-								<p class="designattion mb-0">Web Designer</p>
+							@if(Auth::user()->image)
+								<img src="{{asset('images/sproviders')}}/{{Auth::user()->image}}"  class="user-img" alt="user avatar">
+							@else
+								<img src="{{asset('images/sproviders/default.jpg')}}"  class="user-img" alt="user avatar">
+							@endif<div class="user-info ps-3">
+								<p class="user-name mb-0">{{Auth::user()->name}}</p>
+								<p class="designattion mb-0">Prestataire de service</p>
 							</div>
 						</a>
 						<ul class="dropdown-menu dropdown-menu-end">
-							<li><a class="dropdown-item" href="javascript:;"><i class="bx bx-user"></i><span>Profile</span></a>
+							<li><a class="dropdown-item" href="{{route('sprovider.profile')}}"><i class="bx bx-user"></i><span>Profile</span></a>
 							</li>
-							<li><a class="dropdown-item" href="javascript:;"><i class='bx bx-log-out-circle'></i><span>Logout</span></a>
+							<li><a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();"><i class='bx bx-log-out-circle'></i><span>Déconnexion</span></a>
+								<form action="{{ route('logout') }}" id="logout-form" method="POST" style="display:none;">
+                                    @csrf
+                                </form>
 							</li>
 						</ul>
 					</div>
@@ -387,6 +394,7 @@
 	</script>
 	<!--app JS-->
 	<script src="{{asset('rocketassets/assets/js/app.js')}}"></script>
+	@livewireScripts
 </body>
 
 </html>

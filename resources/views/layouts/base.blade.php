@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>Joinus - Online Service Provider for your House Needs</title>
+    <title>Joinus - Portails des prestataires des services</title>
     <meta name="keywords" content="">
     <meta name="description" content="">
     <meta name="author" content="">
@@ -63,24 +63,25 @@
                     <li class="title">
                         <a href="/"><img src="{{asset('images/logo.png')}}" class="img-responsive"></a>
                     </li>
+                    <li><a href="/"><i class="fa fa-home"> </i> Accueil</a></li>
                     <li><a href="{{ route('home.service_categories')}}">Catégories</a></li>
-                  
+                    <li><a href="{{ route('home.service_categories')}}">Services</a></li>
+                    <li><a href="{{ route('home.service_categories')}}">Les Prestataires</a></li>
+                    <li><a href="{{ route('home.service_categories')}}">Notre Equipe</a></li>
                         @if(Route::has('login'))
                             @auth
                                 @if(Auth::user()->utype==='ADM')
-                                <li class="login-form"> <a href="#" title="Register">Mon Compte(Admin)</a>
+                                <li class="login-form"> <a href="#" title="Register">{{ Auth::user()->name}}-(Admin)</a>
                                     <ul class="drop-down one-column hover-fade">
                                         <li><a href="{{ route('admin.dashboard') }}">Tableau de bord</a></li>
-                                        <li><a href="{{ route('admin.service_categories') }}">Catégories de services</a></li>
-                                        <li><a href="{{ route('admin.all_services') }}">Tous les Service</a></li>
                                         <li><a href="{{ route('admin.slider') }}">Bannieres</a></li>
                                         <li><a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Deconnexion</a></li>
                                     </ul>
                                 </li>
                                 @elseif(Auth::user()->utype==='SVP')
-                                    <li class="login-form"> <a href="#" title="Register">Mon Compte(Prestataire)</a>
+                                    <li class="login-form"> <a href="#" title="Register">{{ Auth::user()->name}} - (Prestataire)</a>
                                         <ul class="drop-down one-column hover-fade">
-                                            <li><a href="{{ route('sprovider.dashboard') }}">Tableau de bord</a></li>
+                                            <li><a href="{{ route('sprovider.profile') }}">Mon compte</a></li>
                                             <li><a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Deconnexion</a></li>
                                         </ul>
                                     </li>
@@ -97,8 +98,8 @@
                                     @csrf
                                 </form>
                             @else
-                            <li class="login-form"> <a href="{{ route('register') }}" title="Register">Inscription</a></li>
-                            <li class="login-form"> <a href="{{ route('login') }}" title="Login">Connexion</a></li>
+                            <li class="login-form" > <a href="{{ route('register') }}" style="background-color: rgb(45, 57, 216); color:white;opacity:70%; border-radius:100px" class="text-white"  title="Inscription">Créer un compte</a></li>
+                            <li class="login-form"> <a href="{{ route('login') }}" style="background-color: rgb(37, 116, 49); color:white; border-radius:100px" title="Connexion">Connexion</a></li>
                             @endif
                         @endif
                     <li class="search-bar">
@@ -111,7 +112,7 @@
             <div class="container">
                 <div class="row visible-md visible-lg">
                     <div class="col-md-3 col-xs-6 col-sm-6">
-                        <h3>APPLIANCE SERVICES </h3>
+                        <h3>Services recommandés</h3>
                         <ul>
                             <li><i class="fa fa-check"></i> <a href="servicesbycategory/12.html">TV</a></li>
                             <li><i class="fa fa-check"></i> <a href="servicesbycategory/14.html">Geyser</a></li>
@@ -123,7 +124,7 @@
                         </ul>
                     </div>
                     <div class="col-md-3 col-xs-6 col-sm-6">
-                        <h3>AC SERVICES </h3>
+                        <h3>Services populaires</h3>
                         <ul>
                             <li><i class="fa fa-check"></i> <a
                                     href="service-details/ac-installation.html">Installation</a></li>
@@ -139,7 +140,7 @@
                         </ul>
                     </div>
                     <div class="col-md-3 col-xs-6 col-sm-6">
-                        <h3>HOME NEEDS </h3>
+                        <h3>Services à domicile</h3>
                         <ul>
                             <li><i class="fa fa-check"></i> <a href="servicesbycategory/19.html">Laundry </a></li>
                             <li><i class="fa fa-check"></i> <a href="servicesbycategory/4.html">Electrical</a></li>
@@ -150,7 +151,7 @@
                         </ul>
                     </div>
                     <div class="col-md-3 col-xs-6 col-sm-6">
-                        <h3>CONTACT US</h3>
+                        <h3>Contactez-nous</h3>
                         <ul class="contact_footer">
                             <li class="location">
                                 <i class="fa fa-map-marker"></i> <a href="#"> Faridabad, Haryana, India</a>
@@ -163,7 +164,7 @@
                                 <i class="fa fa-headphones"></i> <a href="tel:+911234567890">+91-1234567890</a>
                             </li>
                         </ul>
-                        <h3 style="margin-top: 10px">FOLLOW US</h3>
+                        <h3 style="margin-top: 10px">Suivez-nous sur</h3>
                         <ul class="social">
                             <li class="facebook"><span><i class="fa fa-facebook"></i></span><a href="#"></a></li>
                             <li class="twitter"><span><i class="fa fa-twitter"></i></span><a href="#"></a></li>
@@ -173,23 +174,23 @@
                 </div>
                 <div class="row visible-sm visible-xs">
                     <div class="col-md-6">
-                        <h3 class="mlist-h">CONTACT US</h3>
+                        <h3 class="mlist-h">Contactez-nous</h3>
                         <ul class="contact_footer mlist">
                             <li class="location">
-                                <i class="fa fa-map-marker"></i> <a href="#"> Faridabad, Haryana, India</a>
+                                <i class="fa fa-map-marker"></i> <a href="#">Ecole des postes, Yaoundé Cameroun</a>
                             </li>
                             <li>
                                 <i class="fa fa-envelope"></i> <a
-                                    href="mailto:contact@surfsidemedia.in">contact@surfsidemedia.in</a>
+                                    href="mailto:contact@surfsidemedia.in">contact@joinus.com</a>
                             </li>
                             <li>
-                                <i class="fa fa-phone"></i> <a href="tel:+911234567890">+91-1234567890</a>
+                                <i class="fa fa-phone"></i> <a href="tel:+911234567890">+237-691323656</a>
                             </li>
                         </ul>
                         <ul class="social mlist-h">
                             <li class="facebook"><span><i class="fa fa-facebook"></i></span><a href="#"></a></li>
                             <li class="twitter"><span><i class="fa fa-twitter"></i></span><a href="#"></a></li>
-                            <li class="github"><span><i class="fa fa-instagram"></i></span><a href="#"></a></li>
+                            <li class="text-danger"><span><i class="fa fa-instagram"></i></span><a href="#"></a></li>
                         </ul>
                     </div>
                 </div>
@@ -199,11 +200,11 @@
                     <div class="row">
                         <div class="col-md-6">
                             <ul class="nav-footer">
-                                <li><a href="about-us.html">Apropos de nous</a> </li>
-                                <li><a href="contact-us.html">Contactez-nous</a></li>
+                                <li><a href="about-us.html">Apropos</a> </li>
+                                <li><a href="{{route('home.contact')}}">Contactez-nous</a></li>
                                 <li><a href="faq.html">FAQ</a></li>
                                 <li><a href="terms-of-use.html">Conditions d'utilisation</a></li>
-                                <li><a href="privacy.html">Politique de sécurité</a></li>
+                                <li><a href="privacy.html">sécurité</a></li>
                             </ul>
                         </div>
                         <div class="col-md-6">
@@ -250,6 +251,22 @@
                 navigationStyle: "preview1"
             });
         });
+    </script>
+     <script type="text/javascript">
+        function initAutocomplete() {
+            var map = new google.maps.Map(document.getElementById('map'), {
+                center: {
+                    lat: 19.0760,
+                    lng: 72.8777
+                },
+                zoom: 13
+            });
+            var input = document.getElementById('autocomplete');
+            var autocomplete = new google.maps.places.Autocomplete(input);
+        }
+    </script>
+    <script src="maps/api/js?key=AIzaSyDUivMJTPZn0DVMCnTmeOxPEAC6kSuplwU&libraries=places&callback=initAutocomplete"
+        async="" defer="">
     </script>
 @stack('scripts');
 @livewireScripts

@@ -10,7 +10,7 @@
                 <div class="d-flex align-items-center">
                     <div>
                         <p class="mb-0 text-secondary">Total</p>
-                        <h4 class="my-1 text-warning">20</h4>
+                        <h4 class="my-1 text-warning">{{ $customersNumber}}</h4>
                         <p class="mb-0 font-13"></p>
                     </div>
                     <div class="widgets-icons-2 rounded-circle bg-gradient-blooker text-white ms-auto"><i class='bx bx-folder'></i>
@@ -26,7 +26,7 @@
                 <div class="d-flex align-items-center">
                     <div>
                         <p class="mb-0 text-secondary">Actifs</p>
-                        <h4 class="my-1 text-success">16</h4>
+                        <h4 class="my-1 text-success">{{ $customersNumber}}</h4>
                         <p class="mb-0 font-13"></p>
                     </div>
                     <div class="widgets-icons-2 rounded-circle bg-gradient-ohhappiness text-white ms-auto"><i class='bx bx-book-open'></i>
@@ -41,7 +41,7 @@
                 <div class="d-flex align-items-center">
                     <div>
                         <p class="mb-0 text-secondary">Inactifs</p>
-                        <h4 class="my-1 text-danger">04</h4>
+                        <h4 class="my-1 text-danger">0</h4>
                         <p class="mb-0 font-13"></p>
                     </div>
                     <div class="widgets-icons-2 rounded-circle bg-gradient-bloody text-white ms-auto"><i class='bx bx-current-location' ></i>
@@ -57,7 +57,7 @@
                 <div class="d-flex align-items-center">
                     <div>
                         <p class="mb-0 text-secondary">Premium</p>
-                        <h4 class="my-1 text-info">02</h4>
+                        <h4 class="my-1 text-info">0</h4>
                         <p class="mb-0 font-13"></p>
                     </div>
                     <div class="widgets-icons-2 rounded-circle bg-gradient-scooter text-white ms-auto"><i class='bx bxs-group'></i>

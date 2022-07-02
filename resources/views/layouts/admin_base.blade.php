@@ -88,6 +88,17 @@
 						</li>
 					</ul>
 				</li>
+				<li>
+					<a class="has-arrow" href="javascript:;">
+						<div class="parent-icon"><i class='bx bxs-message'></i>
+						</div>
+						<div class="menu-title">Messages contact</div>
+					</a>
+					<ul>
+						<li> <a href="{{ route('admin.contacts') }}"><i class="bx bx-right-arrow-alt"></i>Consulter les messages</a>
+						</li>
+					</ul>
+				</li>
 				<li class="menu-label">Comptabilité</li>
                 <li>
 					<a class="has-arrow" href="javascript:;">
@@ -261,12 +272,12 @@
 						<a class="d-flex align-items-center nav-link dropdown-toggle dropdown-toggle-nocaret" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
 							<img src="{{asset('rocketassets/assets/images/avatars/avatar-2.png')}}" class="user-img" alt="user avatar">
 							<div class="user-info ps-3">
-								<p class="user-name mb-0">Seini Abaya</p>
+								<p class="user-name mb-0">{{ Auth::user()->name}}</p>
 								<p class="designattion mb-0">Administrateur</p>
 							</div>
 						</a>
 						<ul class="dropdown-menu dropdown-menu-end">
-							<li><a class="dropdown-item" href="javascript:;"><i class="bx bx-user"></i><span>Profile</span></a>
+							<li><a class="dropdown-item" href="{{ route('admin.profile')}}"><i class="bx bx-user"></i><span>Profile</span></a>
 							</li>
 							<li><a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();"><i class='bx bx-log-out-circle'></i><span>Déconnexion</span></a>
 								<form action="{{ route('logout') }}" id="logout-form" method="POST" style="display:none;">

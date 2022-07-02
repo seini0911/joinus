@@ -76,9 +76,11 @@
                   </tr>
                </thead>
                <tbody>
+                  <?php $i = 0; ?>
                   @foreach($scategories as $scategory)
+                  <?php $i++; ?>
                   <tr>
-                     <td>{{ $scategory->id }}</td>
+                     <td> <?= $i; ?></td>
                      <td>{{ $scategory->name }}</td>
                      <td><img src="{{ asset('images/categories')}}/{{ $scategory->image }}" class="" width="60" alt=""/></td>
                      <td>{{ $scategory->slug }}</td>

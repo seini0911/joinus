@@ -24,6 +24,8 @@ return new class extends Migration
             $table->foreignId('current_team_id')->nullable();
             $table->string('profile_photo_path', 2048)->nullable();
             $table->string('utype')->default('CST'); //user type:by default it is null
+            $table->boolean('activated')->default(false); //this attribute is mean only for service providers
+            $table->boolean('premium')->default(false); //this attribute is meant only for service providers
             $table->timestamps();
         });
     }

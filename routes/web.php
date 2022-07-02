@@ -8,6 +8,7 @@ use App\Http\Livewire\Admin\AdminAllClients;
 use App\Http\Livewire\Admin\AdminAllProviders;
 use App\Http\Livewire\Admin\AdminAllSubscriptions;
 use App\Http\Livewire\Admin\AdminAllTransactions;
+use App\Http\Livewire\Admin\AdminContactComponent;
 use App\Http\Livewire\HomeComponent;
 use Illuminate\Support\Facades\Route;
 use App\Http\Livewire\Admin\AdminDashboardComponent;
@@ -19,11 +20,14 @@ use App\Http\Livewire\Admin\AdminServiceCategoryComponent;
 use App\Http\Livewire\Admin\AdminServicesByCategoryComponent;
 use App\Http\Livewire\Admin\AdminServicesComponent;
 use App\Http\Livewire\Admin\AdminSliderComponent;
+use App\Http\Livewire\ContactComponent;
 use App\Http\Livewire\Customer\CustomerDashboardComponent;
 use App\Http\Livewire\ServiceCategoriesComponent;
 use App\Http\Livewire\ServiceDetailsComponent;
 use App\Http\Livewire\ServicesByCategoryComponent;
+use App\Http\Livewire\Sprovider\EditSproviderProfileComponent;
 use App\Http\Livewire\Sprovider\SproviderDashboardComponent;
+use App\Http\Livewire\Sprovider\SproviderProfileComponent;
 
 /*
 |--------------------------------------------------------------------------
@@ -48,7 +52,7 @@ Route::get('/{category_slug}/services',ServicesByCategoryComponent::class)->name
 Route::get('/service/{service_slug}',ServiceDetailsComponent::class)->name('home.service_details');
 Route::get('/autocomplete', [SearchController::class,'autoComplete'])->name('autocomplete');
 Route::post('/search',[SearchController::class,'searchService'])->name('searchService');
-
+Route::get('/contactez-nous',ContactComponent::class)->name('home.contact');
 //Function to get all the service providers of a service
 //Route::post('/service/{service_id}/providers',[SearchController::class,'searchService'])->name('searchService');
 
@@ -69,6 +73,8 @@ Route::middleware([
     'authsprovider',
 ])->group(function () {
     Route::get('/sprovider/dashboard', SproviderDashboardComponent::class)->name('sprovider.dashboard');
+    Route::get('/sprovider/profile', SproviderProfileComponent::class)->name('sprovider.profile');
+    Route::get('/sprovider/profile/edit',EditSproviderProfileComponent::class)->name('sprovider.edit_profile');
 });
 
 //For admin
@@ -88,6 +94,7 @@ Route::middleware([
     Route::get('/admin/service/add',AdminAddServiceComponent::class)->name('admin.add_service');
     Route::get('/admin/service/edit/{service_slug}', AdminEditServiceComponent::class)->name('admin.edit_service');
     
+    Route::get('/contact',AdminContactComponent::class)->name('admin.contacts');
 
     //getting all providers
     Route::get('/admin/all/providers',AdminAllProviders::class)->name('admin.all_sproviders');
@@ -103,7 +110,7 @@ Route::middleware([
 
     //profile setting
     Route::get('/admin/profile/setting', AdminProfileSettings::class)->name('admin.profile');
-
+    Route::post('/admin/profile/edit/{admin_id}',[AdminProfileSettings::class,])->name('admin.edit_profile');
     Route::get('/admin/slider', AdminSliderComponent::class)->name('admin.slider');
     Route::get('/admin/slide/add',AdminAddSlideComponent::class)->name('admin.add_slide');
     Route::get('/admin/slide/edit/{slide_id}',AdminEditSlideComponent::class)->name('admin.edit_slide');

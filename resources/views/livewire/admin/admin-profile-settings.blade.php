@@ -63,74 +63,86 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-8">
-                    <div class="card">
-                        <div class="card-body">
-                            <div class="row mb-3">
-                                <div class="col-sm-3">
-                                    <h6 class="mb-0">Nom Complet</h6>
+                <form wire:submit.prevent="updateProfile" method="post" class="form">
+                    @csrf
+                    <div class="col-lg-8">
+                        <div class="card">
+                            <div class="card-body">
+                                
+                                <div class="row mb-3">
+                                    <div class="col-sm-3">
+                                        <h6 class="mb-0">Nom Complet</h6>
+                                    </div>
+                                    <div class="col-sm-9 text-secondary">
+                                        <input type="text" name="adminid" class="form-control" value="" placeholder="{{Auth::user()->name}}" wire:model="adminid" />
+                                   
+                                        <input type="text" name="name" class="form-control" value="" placeholder="{{Auth::user()->name}}" wire:model="name" />
+                                    </div>
                                 </div>
-                                <div class="col-sm-9 text-secondary">
-                                    <input type="text" class="form-control" value="" placeholder="Seini Abaya" />
+                                <div class="row mb-3">
+                                    <div class="col-sm-3">
+                                        <h6 class="mb-0">Email</h6>
+                                    </div>
+                                    <div class="col-sm-9 text-secondary">
+                                        <input type="email" name="email" class="form-control" value="" placeholder="{{Auth::user()->email}}" wire:model="email"/>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="row mb-3">
-                                <div class="col-sm-3">
-                                    <h6 class="mb-0">Email</h6>
+                                <div class="row mb-3">
+                                    <div class="col-sm-3">
+                                        <h6 class="mb-0">Téléphone</h6>
+                                    </div>
+                                    <div class="col-sm-9 text-secondary">
+                                        <input type="tel" name="phone" class="form-control" value="" placeholder="{{Auth::user()->phone}}" wire:model="phone" />
+                                    </div>
                                 </div>
-                                <div class="col-sm-9 text-secondary">
-                                    <input type="email" class="form-control" value="" placeholder="seiniabaya@gmail.com" />
+                                <div class="row mb-3">
+                                    <div class="col-sm-3">
+                                        <h6 class="mb-0">Type de Compte</h6>
+                                    </div>
+                                    <div class="col-sm-9 text-secondary">
+                                        @if(Auth::user()->utype=='ADM')
+                                            <input type="text" class="form-control" value="" placeholder="Administrateur" disabled />
+                                            @elseif(Auth::user()->utype=='SVP')
+                                                <input type="text" class="form-control" value="" placeholder="prestataire" disabled />
+                                            @else
+                                            <input type="text" class="form-control" value="" placeholder="Client" disabled />
+                                        @endif
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="row mb-3">
-                                <div class="col-sm-3">
-                                    <h6 class="mb-0">Téléphone</h6>
+                                <div class="row mb-3">
+                                    <div class="col-sm-3">
+                                        <h6 class="mb-0">Rôle</h6>
+                                    </div>
+                                    <div class="col-sm-9 text-secondary">
+                                        <input type="text" class="form-control" value="" placeholder="Web master " disabled />
+                                    </div>
                                 </div>
-                                <div class="col-sm-9 text-secondary">
-                                    <input type="tel" class="form-control" value="" placeholder="(239) 816-9029" />
+                                <div class="row mb-3">
+                                    <div class="col-sm-3">
+                                        <h6 class="mb-0">Ville</h6>
+                                    </div>
+                                    <div class="col-sm-9 text-secondary">
+                                        <input type="text" class="form-control" value="" placeholder="Yaounde" disabled/>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="row mb-3">
-                                <div class="col-sm-3">
-                                    <h6 class="mb-0">Type de Compte</h6>
+                                <div class="row mb-3">
+                                    <div class="col-sm-3">
+                                        <h6 class="mb-0">Mot de passe</h6>
+                                    </div>
+                                    <div class="col-sm-9 text-secondary">
+                                        <input type="password" name="password" class="form-control" value="" placeholder="Mot de passe" wire:model="password"/>
+                                    </div>
                                 </div>
-                                <div class="col-sm-9 text-secondary">
-                                    <input type="text" class="form-control" value="" placeholder="Admin " />
-                                </div>
-                            </div>
-                            <div class="row mb-3">
-                                <div class="col-sm-3">
-                                    <h6 class="mb-0">Rôle</h6>
-                                </div>
-                                <div class="col-sm-9 text-secondary">
-                                    <input type="text" class="form-control" value="" placeholder="Web master " />
-                                </div>
-                            </div>
-                            <div class="row mb-3">
-                                <div class="col-sm-3">
-                                    <h6 class="mb-0">Ville</h6>
-                                </div>
-                                <div class="col-sm-9 text-secondary">
-                                    <input type="text" class="form-control" value="" placeholder="Yaounde" />
-                                </div>
-                            </div>
-                            <div class="row mb-3">
-                                <div class="col-sm-3">
-                                    <h6 class="mb-0">Mot de passe</h6>
-                                </div>
-                                <div class="col-sm-9 text-secondary">
-                                    <input type="password" class="form-control" value="" placeholder="Mot de passe"/>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-sm-3"></div>
-                                <div class="col-sm-9 text-secondary">
-                                    <input type="button" class="btn btn-primary px-4" value="Enregistrer" />
+                                <div class="row">
+                                    <div class="col-sm-3"></div>
+                                    <div class="col-sm-9 text-secondary">
+                                        <input type="button"  class="btn btn-primary px-4" value="Enregistrer" />
+                                    </div> 
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
+                </form>
             </div>
         </div>
     </div>

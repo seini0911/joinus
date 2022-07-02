@@ -7,7 +7,7 @@
             <div class="d-flex align-items-center">
                <div>
                   <p class="mb-0 text-secondary">Souscriptions</p>
-                  <h4 class="my-1 text-info">4805</h4>
+                  <h4 class="my-1 text-info">0</h4>
                   <p class="mb-0 font-13"></p>
                </div>
                <div class="widgets-icons-2 rounded-circle bg-gradient-scooter text-white ms-auto"><i class='bx bx-spreadsheet'></i>
@@ -23,7 +23,7 @@
             <div class="d-flex align-items-center">
                <div>
                   <p class="mb-0 text-secondary">Total des Revenues</p>
-                  <h4 class="my-1 text-danger">384,245 FCFA</h4>
+                  <h4 class="my-1 text-danger">0</h4>
                   <p class="mb-0 font-13"></p>
                </div>
                <div class="widgets-icons-2 rounded-circle bg-gradient-bloody text-white ms-auto"><i class='bx bxs-wallet'></i>
@@ -38,7 +38,7 @@
             <div class="d-flex align-items-center">
                <div>
                   <p class="mb-0 text-secondary">Taux d'abonnements</p>
-                  <h4 class="my-1 text-success">34.6%</h4>
+                  <h4 class="my-1 text-success">/%</h4>
                   <p class="mb-0 font-13"></p>
                </div>
                <div class="widgets-icons-2 rounded-circle bg-gradient-ohhappiness text-white ms-auto"><i class='bx bxs-bar-chart-alt-2' ></i>
@@ -54,7 +54,7 @@
             <div class="d-flex align-items-center">
                <div>
                   <p class="mb-0 text-secondary">Total des clients</p>
-                  <h4 class="my-1 text-warning">6000</h4>
+                  <h4 class="my-1 text-warning">{{$customersNumber}}</h4>
                   <p class="mb-0 font-13"></p>
                </div>
                <div class="widgets-icons-2 rounded-circle bg-gradient-blooker text-white ms-auto"><i class='bx bxs-user'></i>
@@ -74,7 +74,7 @@
          <div class="d-flex align-items-center">
             <div>
                <p class="mb-0 text-secondary">Catégories</p>
-               <h4 class="my-1 text-warning">20</h4>
+               <h4 class="my-1 text-warning">{{$scategoriesNumber}}</h4>
                <p class="mb-0 font-13"></p>
             </div>
             <div class="widgets-icons-2 rounded-circle bg-gradient-blooker text-white ms-auto"><i class='bx bx-folder'></i>
@@ -90,7 +90,7 @@
          <div class="d-flex align-items-center">
             <div>
                <p class="mb-0 text-secondary">Services</p>
-               <h4 class="my-1 text-success">100</h4>
+               <h4 class="my-1 text-success">{{$servicesNumber}}</h4>
                <p class="mb-0 font-13"></p>
             </div>
             <div class="widgets-icons-2 rounded-circle bg-gradient-ohhappiness text-white ms-auto"><i class='bx bx-book-open'></i>
@@ -121,7 +121,7 @@
          <div class="d-flex align-items-center">
             <div>
                <p class="mb-0 text-secondary">Total des prestataires</p>
-               <h4 class="my-1 text-info">800</h4>
+               <h4 class="my-1 text-info">{{$sprovidersNumber}}</h4>
                <p class="mb-0 font-13"></p>
             </div>
             <div class="widgets-icons-2 rounded-circle bg-gradient-scooter text-white ms-auto"><i class='bx bxs-group'></i>

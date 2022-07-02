@@ -16,7 +16,7 @@
         </div>
         <div class="filter-title">
             <div class="title-header">
-                <h2 style="color:rgb(161, 38, 7);"><b>BIENVENUE SUR G.S.P</b></h2>
+                <h2 style="color:rgba(14, 17, 71, 0.37);"><b>BIENVENUE</b></h2>
                 <p class="lead">Vous êtes à la recherche d'un service en particulier ? </p>
             </div>
             <div class="filter-header">
@@ -59,7 +59,7 @@
                 <div class="container">
                     <div class="row">
                         <div class="titles">
-                            <h2>SurfsideMedia <span>Choice</span> of Services</h2>
+                            <h2>Besoin d'aide <span> JoinUs </span> et choisi un service</h2>
                             <i class="fa fa-plane"></i>
                             <hr class="tall">
                         </div>
@@ -78,8 +78,8 @@
                                     <hr class="separator">
                                     <p>{{$fservice->tagline}}</p>
                                     <div class="content-btn"><a href="{{route('home.service_details',['service_slug'=>$fservice->slug])}}"
-                                            class="btn btn-primary">Book Now</a></div>
-                                    <div class="price"><span>&#36;</span><b>From</b>{{$fservice->price}}</div>
+                                            class="btn btn-primary">Choisir un prestataire</a></div>
+                                    <!-- <div class="price"><span>&#36;</span><b>From</b>{{$fservice->price}}</div>-->
                                 </div>
                             </a>
                         </div>
@@ -94,13 +94,14 @@
                     <div class="row">
                         <div class="col-md-4 ">
                             <div class="services-lines-info">
-                                <h2>BIENVENUE SUR JOINUS HOUSE HOLD</h2>
+                                <h2>CATEGORIES DE SERVICES POPULAIRES</h2>
                                 <p class="lead">
-                                    Retrouvez plusieurs catégories de services offert par des professionnels grâce à notre solution.
+                                    Retrouvez parmi ces catégories des professionnels de confiance prêt à vous aider quelqu'en soit le service souhaité
                                     <span class="line"></span>
                                 </p>
-
-                                <p>Commandez une variété de service à bas prix prêt de chez-vous.</p>
+                                <p>Vous êtes fatigué de parler de vos prestations auprès des amis qui n'ont pas besoin 
+                                    de vos compétences à l'immédiat ?, inscrivez-vous en tant que prestataire et on se charge du reste
+                                </p>
                             </div>
                         </div>
                         <div class="col-md-8">
@@ -126,7 +127,7 @@
             <div class="container">
                 <div class="row">
                     <div class="titles">
-                        <h2><span>Appliance</span>Services</h2>
+                        <h2><span>Nos Partenaires</span> de Services</h2>
                         <i class="fa fa-plane"></i>
                         <hr class="tall">
                     </div>

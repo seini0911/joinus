@@ -10,7 +10,7 @@
                 <div class="d-flex align-items-center">
                     <div>
                         <p class="mb-0 text-secondary">Total</p>
-                        <h4 class="my-1 text-warning">07</h4>
+                        <h4 class="my-1 text-warning">{{$slidesNumber}}</h4>
                         <p class="mb-0 font-13"></p>
                     </div>
                     <div class="widgets-icons-2 rounded-circle bg-gradient-blooker text-white ms-auto"><i class='bx bx-folder'></i>
@@ -26,7 +26,7 @@
                 <div class="d-flex align-items-center">
                     <div>
                         <p class="mb-0 text-secondary">Actifs</p>
-                        <h4 class="my-1 text-success">05</h4>
+                        <h4 class="my-1 text-success">{{$activeSlides}}</h4>
                         <p class="mb-0 font-13"></p>
                     </div>
                     <div class="widgets-icons-2 rounded-circle bg-gradient-ohhappiness text-white ms-auto"><i class='bx bx-book-open'></i>
@@ -41,7 +41,7 @@
                 <div class="d-flex align-items-center">
                     <div>
                         <p class="mb-0 text-secondary">Inactifs</p>
-                        <h4 class="my-1 text-danger">02</h4>
+                        <h4 class="my-1 text-danger">{{ $inactiveSlides}}</h4>
                         <p class="mb-0 font-13"></p>
                     </div>
                     <div class="widgets-icons-2 rounded-circle bg-gradient-bloody text-white ms-auto"><i class='bx bx-current-location' ></i>
@@ -52,6 +52,8 @@
         </div>
         <!-- -->
     </div>
+    <hr>
+    <a href="{{route('admin.add_slide')}}" class="btn btn-primary">Ajouter une bannière</a>
     <!--end row-->
     <hr/>
     <div class="card">
@@ -69,32 +71,34 @@
                     </tr>
                 </thead>
                 <tbody>
+                    <?php $i= 1; ?>
+                    @foreach($slides as $slide)
                     <tr>
-                      <td>1</td>
-                      <td>picture0</td>
-                      <td>Banniere premium</td>
-                      <td>Actif</td>
-                      <td>01/02/2022 20:00:00</td>
-                      <td>
-                      <div class="d-flex flex-direction-row">
-                            <div class="col">
-                               <button type="button" class="btn btn-outline-success"><i
-                                  class='bx bx-check'></i>
-                               </button>
+                        <td><?= $i++; ?></td>
+                        <td><img src="{{ asset('images/slider')}}/{{ $slide->image }}" class="" width="60" alt=""/> </td>
+                        <td>{{ $slide->title }}</td>
+                        <td>
+                            @if($slide->status)
+                                Actif
+                            @else
+                                Inactif
+                            @endif
+                        </td>
+                        <td>{{ $slide->created_at }}</td>
+                        <td>
+                            <div class="d-flex flex-direction-row">
+                                <div class="col">
+                                    <a href="{{route('admin.edit_slide',['slide_id'=>$slide->id])}}" class="btn btn-outline-success"><i class='bx bx-edit'></i></a>
+                                </div>
+                                <div class="col">
+                                    <a href="#" class="btn btn-outline-danger" onclick="confirm('Êtes vous sûr de vouloir supprimer cette banniere ?') || event.stopImmediatePropagation()" wire:click.prevent="deleteSlide({{$slide->id}})" style="margin-left: 10px;">
+                                    <i class='bx bx-trash'></i></a>
+                                </div>
                             </div>
-                            <div class="col">
-                               <button type="button" class="btn btn-outline-success"><i
-                                  class='bx bx-edit'></i>
-                               </button>
-                            </div>
-                            <div class="col">
-                               <button type="button" class="btn btn-outline-danger"><i
-                                  class='bx bx-trash'></i>
-                               </button>
-                            </div>
-                      </div>
-                      </td>
+                            
+                        </td>
                     </tr>
+                @endforeach
                 </tbody>
             </table>
             </div>

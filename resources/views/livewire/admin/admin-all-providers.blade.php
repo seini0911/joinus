@@ -10,7 +10,7 @@
                 <div class="d-flex align-items-center">
                     <div>
                         <p class="mb-0 text-secondary">Total</p>
-                        <h4 class="my-1 text-warning">20</h4>
+                        <h4 class="my-1 text-warning">{{ $sProvidersNumber }}</h4>
                         <p class="mb-0 font-13"></p>
                     </div>
                     <div class="widgets-icons-2 rounded-circle bg-gradient-blooker text-white ms-auto"><i class='bx bx-folder'></i>
@@ -87,15 +87,30 @@
                     </tr>
                 </thead>
                 <tbody>
+                    <?php $i = 0; ?>
+                    @foreach($sProviders as $sprovider)
+                    <?php $i++; ?>
                     <tr>
-                    <td>1</td>
-                        <td>Customer Support</td>
-                        <td>6912334389</td>
-                        <td>prestataire1@gmail.com</td>
-                        <td>profile 1</td>
+                    <td> <?= $i; ?></td>
+                        <td>{{ $sprovider->name }}</td>
+                        <td>
+                            @if($sprovider->phone)
+                            {{ $sprovider->phone }}
+                              @else
+                              Aucun numéro
+                            @endif
+                        </td>
+                        <td>{{ $sprovider->email }}</td>
+                        <td>
+                            @if($sprovider->profile_photo_path)
+                                {{ $sprovider->profile_photo_path }}
+                            @else
+                                Aucune photo 
+                            @endif
+                        </td>
                         <td>Service y</td>
                         <td>Non</td>
-                        <td>01/02/2022 20:00:00</td>
+                        <td>{{ $sprovider->created_at }}</td>
                         <td>
                         <div class="d-flex flex-direction-row">
                             <div class="col">
@@ -111,6 +126,7 @@
                         </div>
                         </td>
                     </tr>
+                    @endforeach
                 </tbody>
             </table>
             </div>
