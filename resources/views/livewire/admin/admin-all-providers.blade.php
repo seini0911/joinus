@@ -26,7 +26,7 @@
                 <div class="d-flex align-items-center">
                     <div>
                         <p class="mb-0 text-secondary">Actifs</p>
-                        <h4 class="my-1 text-success">16</h4>
+                        <h4 class="my-1 text-success">{{$activesvpnumber}}</h4>
                         <p class="mb-0 font-13"></p>
                     </div>
                     <div class="widgets-icons-2 rounded-circle bg-gradient-ohhappiness text-white ms-auto"><i class='bx bx-book-open'></i>
@@ -41,7 +41,7 @@
                 <div class="d-flex align-items-center">
                     <div>
                         <p class="mb-0 text-secondary">Inactifs</p>
-                        <h4 class="my-1 text-danger">04</h4>
+                        <h4 class="my-1 text-danger">{{$inactivesvpnumber}}</h4>
                         <p class="mb-0 font-13"></p>
                     </div>
                     <div class="widgets-icons-2 rounded-circle bg-gradient-bloody text-white ms-auto"><i class='bx bx-current-location' ></i>
@@ -114,9 +114,9 @@
                         <td>
                         <div class="d-flex flex-direction-row">
                             <div class="col">
-                                <button type="button" class="btn btn-outline-success"><i
-                                    class='bx bx-edit'></i>
-                                </button>
+                                <a href="{{route('admin.activate_sprovider_account',['sprovider_id'=>$sprovider->id]) }}" class="btn btn-success"> 
+                                    <i class='bx bx-edit'></i>
+                                 </a>
                             </div>
                             <div class="col">
                                 <button type="button" class="btn btn-outline-danger"><i

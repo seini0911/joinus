@@ -24,6 +24,7 @@ class AdminServiceCategoryComponent extends Component
         $scategories->delete();
         session()->flash('message','La catégorie :'.$scategories->name.' a été supprimée avec succès');
     }
+    
     public function render()
     {
         $scategoriesnumber = ServiceCategory::all()->count();

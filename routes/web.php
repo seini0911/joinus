@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\SearchController;
+use App\Http\Livewire\Admin\AdminActivateSproviderAccountComponent;
 use App\Http\Livewire\Admin\AdminAddServiceCategoryComponent;
 use App\Http\Livewire\Admin\AdminAddServiceComponent;
 use App\Http\Livewire\Admin\AdminAddSlideComponent;
@@ -100,6 +101,8 @@ Route::middleware([
     
     Route::get('/contact',AdminContactComponent::class)->name('admin.contacts');
 
+    // route to activate a service providers' profile
+    Route::get('/admin/sprovider/activate/{sprovider_id}', AdminActivateSproviderAccountComponent::class)->name('admin.activate_sprovider_account');
     //getting all providers
     Route::get('/admin/all/providers',AdminAllProviders::class)->name('admin.all_sproviders');
     
