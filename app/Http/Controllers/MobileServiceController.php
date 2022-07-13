@@ -36,6 +36,7 @@ class MobileServiceController extends Controller
         ],200);
 
     }
+    
     //create a service by a service provider
     public function createService()
     {

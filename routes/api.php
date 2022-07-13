@@ -19,6 +19,9 @@ use Illuminate\Support\Facades\Route;
 
 Route::post('/register',[MobileAuthController::class,'register']);
 Route::post('/login',[MobileAuthController::class,'login']);
+Route::get('/categories',[MobileServiceCategoriesController::class,'getServiceCategories']); //get all services categories to display on the carousel of the app
+Route::get('/services',[MobileServiceController::class,'getServices']); //get all services to display on the home page
+
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
@@ -39,6 +42,9 @@ Route::group(['middleware'=>['auth:sanctum']], function(){
     Route::get('/categories',[MobileServiceCategoriesController::class,'getServiceCategories']); //get all services categories to display on the carousel of the app
     Route::get('/service/category/{service_id}',[MobileServiceController::class,'getServiceCategory']); //gets a service category from the service's id
     
+
+    // Operations related to transactions made between the customer and the service provider for a given service
+    //Route::get()
     //logged in service provider operations
     Route::post('/service/add',[MobileServiceController::class,'addService']); //adding a service by a service provider
     Route::put('/service/update/{service_id}',[MobileServiceController::class,'updateService']); //updating a service by a service provider

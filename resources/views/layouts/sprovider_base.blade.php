@@ -54,14 +54,14 @@
 						<div class="menu-title">Tableau de bord</div>
 					</a>
 					<ul>
-                        <li> <a href="#"><i class="bx bx-right-arrow-alt"></i>Accueil</a>
+                        <li> <a href="{{route('sprovider.dashboard')}}"><i class="bx bx-right-arrow-alt"></i>Accueil</a>
 						</li>
                         <li> <a href="/"><i class="bx bx-right-arrow-alt"></i>Visiter le site</a>
 						</li>
 					</ul>
 				</li>
 
-				<li class="menu-label">Mes Services</li>
+				<li class="menu-label">Mes Réalisation</li>
 				<li>
 					<a class="has-arrow" href="javascript:;">
 						<div class="parent-icon"><i class='bx bxs-folder'></i>
@@ -69,7 +69,7 @@
 						<div class="menu-title">Mes services</div>
 					</a>
 					<ul>
-						<li> <a href="component-notifications.html"><i class="bx bx-right-arrow-alt"></i>Consulter les comptes</a>
+						<li> <a href="{{route('sprovider.realisations')}}"><i class="bx bx-right-arrow-alt"></i>Gérer mes services</a>
 						</li>
 					</ul>
 				</li>

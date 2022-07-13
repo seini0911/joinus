@@ -17,8 +17,9 @@ class CreateTransactionsTable extends Migration
             $table->id();
             $table->string('name');
             $table->string('reference')->nullable();
-            $table->decimal('amount');
+            $table->decimal('amount')->nullable();
             $table->boolean('status')->default(false);
+            $table->boolean('isaccepted')->default(false);
             $table->foreignId('service_id')->constrained()->references('id')->on('services')->onDelete('cascade');
             $table->foreignId('sprovider_id')->references('id')->on('users')->onDelete('cascade');
             $table->foreignId('customer_id')->references('id')->on('users')->onDelete('cascade');

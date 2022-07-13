@@ -29,9 +29,7 @@ class AdminServicesComponent extends Component
 
         $service->delete();
         session()->flash('message','Le service '.$service->name.' a été supprimer avec succès');
-   
     }
-   
     public function render()
     {
         $servicesNumber = Service::all()->count();

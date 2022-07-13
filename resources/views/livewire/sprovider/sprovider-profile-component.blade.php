@@ -20,11 +20,13 @@
                     <div class="card">
                         <div class="card-body">
                             <div class="d-flex flex-column align-items-center text-center">
-                                @if($sprovider->image)
-                                    <img src="{{ asset('images/sproviders')}}/{{$sprovider->image}}" alt="Admin" class="rounded-circle p-1" width="130">
-                                @else
-                                    <img src="{{ asset('images/sproviders/default.jpg')}}" alt="Admin" class="rounded-circle p-1 " width="130">
-                                @endif
+                                @if($sprovider != null)
+                                    @if($sprovider->image)
+                                        <img src="{{ asset('images/sproviders')}}/{{$sprovider->image}}" alt="Admin" class="rounded-circle p-1" width="130">
+                                    @else
+                                        <img src="{{ asset('images/sproviders/default.jpg')}}" alt="Admin" class="rounded-circle p-1 " width="130">
+                                    @endif
+                                
                                     <div class="mt-3">
                                     <h4>{{ Auth::user()->name}}</h4>
                                     <p class="text-muted font-size-sm">{{$sprovider->about}}</p>
@@ -42,6 +44,7 @@
                                     @endif
                                     <hr/>
                                 </div>
+                                @endif
                             </div>
                         </div>
                     </div>

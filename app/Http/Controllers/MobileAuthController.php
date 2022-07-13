@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use Illuminate\Http\Request;
+use App\Models\ServiceProvider;
 use Illuminate\Support\Facades\Auth;
 
 
@@ -28,7 +29,12 @@ class MobileAuthController extends Controller
             'utype'=>$attributes['utype'],
             'password'=>bcrypt($attributes['password']),
         ]);
-
+        //Once the user has been registered and that his account was for a svp then save his id in svp table
+        if($attributes['utype'] == 'SVP'){
+            ServiceProvider::create([
+                'user_id'=>$user->id,
+            ]);
+        }
         //return user and token in response
         return response([
             'user'=>$user,

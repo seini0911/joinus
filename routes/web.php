@@ -28,6 +28,8 @@ use App\Http\Livewire\ServicesByCategoryComponent;
 use App\Http\Livewire\Sprovider\EditSproviderProfileComponent;
 use App\Http\Livewire\Sprovider\SproviderDashboardComponent;
 use App\Http\Livewire\Sprovider\SproviderProfileComponent;
+use App\Http\Livewire\Sprovider\SproviderRealisationsComponent;
+use App\Models\SproviderRealisation;
 
 /*
 |--------------------------------------------------------------------------
@@ -53,6 +55,7 @@ Route::get('/service/{service_slug}',ServiceDetailsComponent::class)->name('home
 Route::get('/autocomplete', [SearchController::class,'autoComplete'])->name('autocomplete');
 Route::post('/search',[SearchController::class,'searchService'])->name('searchService');
 Route::get('/contactez-nous',ContactComponent::class)->name('home.contact');
+
 //Function to get all the service providers of a service
 //Route::post('/service/{service_id}/providers',[SearchController::class,'searchService'])->name('searchService');
 
@@ -75,6 +78,7 @@ Route::middleware([
     Route::get('/sprovider/dashboard', SproviderDashboardComponent::class)->name('sprovider.dashboard');
     Route::get('/sprovider/profile', SproviderProfileComponent::class)->name('sprovider.profile');
     Route::get('/sprovider/profile/edit',EditSproviderProfileComponent::class)->name('sprovider.edit_profile');
+    Route::get('/sprovider/realisations',SproviderRealisationsComponent::class)->name('sprovider.realisations');
 });
 
 //For admin

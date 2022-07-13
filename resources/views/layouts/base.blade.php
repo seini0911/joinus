@@ -81,7 +81,7 @@
                                 @elseif(Auth::user()->utype==='SVP')
                                     <li class="login-form"> <a href="#" title="Register">{{ Auth::user()->name}} - (Prestataire)</a>
                                         <ul class="drop-down one-column hover-fade">
-                                            <li><a href="{{ route('sprovider.profile') }}">Mon compte</a></li>
+                                            <li><a href="{{route('sprovider.dashboard')}}">Mon compte</a></li>
                                             <li><a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Deconnexion</a></li>
                                         </ul>
                                     </li>

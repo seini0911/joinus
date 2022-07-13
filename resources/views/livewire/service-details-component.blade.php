@@ -64,6 +64,47 @@
                                             </ul>
                                         </div>
                                     </div>
+                                    <hr>
+                                    <div class="col-md-12">
+                                        <div class="post-content">
+                                            <h1>Les Prestataires à proximité de vous qui offrent ce service :</h1>
+                                       
+                                            @if($sproviders !=null)
+                                            @foreach($sproviders as $sprovider)
+                                                <div class="row">
+                                                    <div class="col-md-3">
+                                                        @if($sprovider['image'] != null)
+                                                            <img src="{{ asset('images/sproviders')}}/{{$sprovider['image']}}" alt="Admin" class="rounded-circle p-1" width="130">
+                                                        @else
+                                                            <img src="{{ asset('images/sproviders/default.jpg')}}" alt="Admin" class="rounded-circle p-1 " width="130">
+                                                        @endif
+                                                    </div>
+                                                    <div class="col-md-7">
+                                                        <h4><b>{{$sprovider['user']->name}}</b></h4>
+                                                        <b>
+                                                            <i> {{$sprovider['city']}} </i> : 
+                                                            <i> {{$sprovider['service_location']}} </i>
+                                                        </b>
+                                                        
+                                                        <p class="grey-text">
+                                                            Apropos du prestataire <br>
+                                                            @if($sprovider['about'] == null)
+                                                                Aucune description n'est disponible pour ce prestataire
+                                                            @else
+                                                                {{$sprovider['about']}}
+                                                            @endif
+                                                        </p>
+                                                    </div>
+                                                    <div class="col-md-2">
+                                                        <button class="btn btn-success">Contacter</button>
+                                                        <button class="btn btn-info">Voir son profile</button>
+                                                    </div>
+                                                </div>
+                                               
+                                            @endforeach
+                                        @endif
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -126,7 +167,7 @@
                                         </div>
                                         <div class="info-gallery">
                                             <h3>
-                                               {{$r_service->name}}
+                                                {{$r_service->name}}
                                             </h3>
                                             <hr class="separator">
                                             <p>
