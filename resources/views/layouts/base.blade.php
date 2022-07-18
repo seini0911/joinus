@@ -35,7 +35,7 @@
                         <ul class="visible-md visible-lg text-left">
                             <li><a href="tel:+911234567890"><i class="fa fa-phone"></i> +237-691323656</a></li>
                             <li><a href="mailto:contact@joinus.com"><i class="fa fa-envelope"></i>
-                                    contact@joinus.com</a></li>
+                                    support@joinus.com</a></li>
                         </ul>
                         <ul class="visible-xs visible-sm">
                             <li class="text-left"><a href="tel:+237691323656"><i class="fa fa-phone"></i>
@@ -47,8 +47,10 @@
                     <div class="col-md-6">
                         <ul class="visible-md visible-lg text-right">
                             <li><i class="fa fa-comment"></i> Assistance en ligne</li>
-                            <li><a href="index.php/changelocation.html"><i class="fa fa-map-marker"></i> Cameroun,
-                                    Yaoundé</a></li>
+                            <li>
+                                <a href="#"><i class="fa fa-map-marker"></i> Cameroun,
+                                Yaoundé</a>
+                            </li>
                         </ul>
                     </div>
                 </div>
@@ -58,11 +60,10 @@
             <nav class="flat-mega-menu">
                 <label for="mobile-button"> <i class="fa fa-bars"></i></label>
                 <input id="mobile-button" type="checkbox">
-
-                <ul class="collapse">
+                 <ul class="collapse">
                     <li class="title">
-                        <a href="/"><img src="{{asset('images/logo.png')}}" class="img-responsive"></a>
-                    </li>
+                        <b style="font-size: 2rem; font-family:Verdana, Geneva, Tahoma, sans-serif;color: rgba(0, 59, 185, 0.959)">JoinUs</b>
+                       </li>
                     <li><a href="/"><i class="fa fa-home"> </i> Accueil</a></li>
                     <li><a href="{{ route('home.service_categories')}}">Catégories</a></li>
                     <li><a href="{{ route('home.service_categories')}}">Services</a></li>
@@ -98,8 +99,8 @@
                                     @csrf
                                 </form>
                             @else
-                            <li class="login-form" > <a href="{{ route('register') }}" style="background-color: rgb(45, 57, 216); color:white;opacity:70%; border-radius:100px" class="text-white"  title="Inscription">Créer un compte</a></li>
-                            <li class="login-form"> <a href="{{ route('login') }}" style="background-color: rgb(37, 116, 49); color:white; border-radius:100px" title="Connexion">Connexion</a></li>
+                            <li class="login-form" > <a href="{{ route('register') }}" style="background-color: rgb(3, 6, 49); color:white;opacity:70%; border-radius:100px" class="text-white"  title="Inscription">Créer un compte</a></li>
+                            <li class="login-form"> <a href="{{ route('login') }}"  title="Connexion">Connexion</a></li>
                             @endif
                         @endif
                     <li class="search-bar">
@@ -111,57 +112,22 @@
         <footer id="footer" class="footer-v1">
             <div class="container">
                 <div class="row visible-md visible-lg">
-                    <div class="col-md-3 col-xs-6 col-sm-6">
-                        <h3>Services recommandés</h3>
-                        <ul>
-                            <li><i class="fa fa-check"></i> <a href="servicesbycategory/12.html">TV</a></li>
-                            <li><i class="fa fa-check"></i> <a href="servicesbycategory/14.html">Geyser</a></li>
-                            <li><i class="fa fa-check"></i> <a href="servicesbycategory/13.html">Refrigerator</a></li>
-                            <li><i class="fa fa-check"></i> <a href="servicesbycategory/21.html">Washing Machine</a>
-                            </li>
-                            <li><i class="fa fa-check"></i> <a href="servicesbycategory/22.html">Microwave Oven</a></li>
-                            <li><i class="fa fa-check"></i> <a href="servicesbycategory/10.html">Water Purifier</a></li>
-                        </ul>
-                    </div>
-                    <div class="col-md-3 col-xs-6 col-sm-6">
-                        <h3>Services populaires</h3>
-                        <ul>
-                            <li><i class="fa fa-check"></i> <a
-                                    href="service-details/ac-installation.html">Installation</a></li>
-                            <li><i class="fa fa-check"></i> <a
-                                    href="service-details/ac-uninstallation.html">Uninstallation</a></li>
-                            <li><i class="fa fa-check"></i> <a href="service-details/ac-repair.html">AC Repair</a></li>
-                            <li><i class="fa fa-check"></i> <a href="service-details/ac-gas-refill.html">Gas Refill</a>
-                            </li>
-                            <li><i class="fa fa-check"></i> <a href="service-details/ac-wet-servicing.html">Wet
-                                    Servicing</a></li>
-                            <li><i class="fa fa-check"></i> <a href="service-details/ac-dry-servicing.html">Dry
-                                    Servicing </a></li>
-                        </ul>
-                    </div>
-                    <div class="col-md-3 col-xs-6 col-sm-6">
-                        <h3>Services à domicile</h3>
-                        <ul>
-                            <li><i class="fa fa-check"></i> <a href="servicesbycategory/19.html">Laundry </a></li>
-                            <li><i class="fa fa-check"></i> <a href="servicesbycategory/4.html">Electrical</a></li>
-                            <li><i class="fa fa-check"></i> <a href="servicesbycategory/8.html">Pest Control </a></li>
-                            <li><i class="fa fa-check"></i> <a href="servicesbycategory/7.html">Carpentry </a></li>
-                            <li><i class="fa fa-check"></i> <a href="servicesbycategory/3.html">Plumbing </a></li>
-                            <li><i class="fa fa-check"></i> <a href="servicesbycategory/20.html">Painting </a></li>
-                        </ul>
+                    <div class="col-md-9 col-xs-6 col-sm-6">
+                        <div class="mapouter"><div class="gmap_canvas"><iframe width="800" height="382" id="gmap_canvas" src="https://maps.google.com/maps?q=Ecole%20de%20postes%20yaound%C3%A9&t=&z=13&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe><a href="https://123movies-to.org">123 movies</a><br><style>.mapouter{position:relative;text-align:right;height:382px;width:800px;}</style><a href="https://www.embedgooglemap.net">embedgooglemap.net</a><style>.gmap_canvas {overflow:hidden;background:none!important;height:382px;width:800px;}</style></div></div>
+                        
                     </div>
                     <div class="col-md-3 col-xs-6 col-sm-6">
                         <h3>Contactez-nous</h3>
                         <ul class="contact_footer">
                             <li class="location">
-                                <i class="fa fa-map-marker"></i> <a href="#"> Faridabad, Haryana, India</a>
+                                <i class="fa fa-map-marker"></i> <a href="#"> Ecole de postes, Yaounde</a>
                             </li>
                             <li>
                                 <i class="fa fa-envelope"></i> <a
-                                    href="mailto:contact@surfsidemedia.in">contact@surfsidemedia.in</a>
+                                    href="mailto:contact@surfsidemedia.in">contact@joinus.com</a>
                             </li>
                             <li>
-                                <i class="fa fa-headphones"></i> <a href="tel:+911234567890">+91-1234567890</a>
+                                <i class="fa fa-headphones"></i> <a href="tel:+911234567890">+237-691323656</a>
                             </li>
                         </ul>
                         <h3 style="margin-top: 10px">Suivez-nous sur</h3>

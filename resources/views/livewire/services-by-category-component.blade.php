@@ -70,7 +70,7 @@
                             @endforeach
                         @else
                        
-                            <p class="text-center">Il n'existe pas de service dans cette catégorie</p>
+                            <p class="text-center alert alert-info">Il n'existe pas de service dans cette catégorie</p>
                          
                         @endif
                     </div>

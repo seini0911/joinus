@@ -12,7 +12,7 @@ class ContactComponent extends Component
     public $email;
     public $phone;
     public $message;
-   
+    
     public function updated($fields)
     {
         $this->validateOnly($fields,[

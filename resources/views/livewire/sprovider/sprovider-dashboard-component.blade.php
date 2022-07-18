@@ -1,6 +1,6 @@
 <div class="page-content">
     <!-- Section services enregistrés -->
-    <h6 class="mb-0 text-uppercase">Services effectuées</h6>
+    <h6 class="mb-0 text-uppercase">Notifications des clients</h6>
     <hr/>
     <div class="row row-cols-1 row-cols-md-2 row-cols-xl-4">
        <!--  -->
@@ -10,7 +10,7 @@
             <div class="d-flex align-items-center">
                <div>
                   <p class="mb-0 text-secondary">Total</p>
-                  <h4 class="my-1 text-warning">10</h4>
+                  <h4 class="my-1 text-warning">{{$notifications_number}}</h4>
                   <p class="mb-0 font-13"></p>
                </div>
                <div class="widgets-icons-2 rounded-circle bg-gradient-blooker text-white ms-auto"><i class='bx bx-folder'></i>
@@ -26,7 +26,7 @@
             <div class="d-flex align-items-center">
                <div>
                   <p class="mb-0 text-secondary">Terminés</p>
-                  <h4 class="my-1 text-success">7</h4>
+                  <h4 class="my-1 text-success">0</h4>
                   <p class="mb-0 font-13"></p>
                </div>
                <div class="widgets-icons-2 rounded-circle bg-gradient-ohhappiness text-white ms-auto"><i class='bx bx-book-open'></i>
@@ -41,7 +41,7 @@
             <div class="d-flex align-items-center">
                <div>
                   <p class="mb-0 text-secondary">En attente</p>
-                  <h4 class="my-1 text-danger">3</h4>
+                  <h4 class="my-1 text-danger">0</h4>
                   <p class="mb-0 font-13"></p>
                </div>
                <div class="widgets-icons-2 rounded-circle bg-gradient-bloody text-white ms-auto"><i class='bx bx-current-location' ></i>
@@ -61,10 +61,10 @@
                 <thead>
                    <tr>
                       <th>N°</th>
-                      <th>Client</th>
-                      <th>Catégorie</th>
-                      <th>Statut</th>
-                      <th>Date de création</th>
+                      <th>Nom du Client</th>
+                      <th>Email</th>
+                      <th>Contact</th>
+                      <th>Date contacter</th>
                       <th>Actions</th>
                    </tr>
                 </thead>

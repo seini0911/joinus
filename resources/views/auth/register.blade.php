@@ -72,8 +72,8 @@
                                 </div>
                                 <div class="form-group row mb-0">
                                     <div class="col-md-10">
-                                        <span style="font-size: 14px;">Déjà inscrit <a
-                                                href="{{ route('login')}}" title="Login">click içi</a>pour se connecter</span>
+                                        <span style="font-size: 14px;">Déjà inscrit ? <a
+                                                href="{{ route('login')}}" title="Login"> connectez-vous </a></span>
                                         <button type="submit" class="btn btn-primary pull-right">Register</button>
                                     </div>
                                 </div>

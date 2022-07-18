@@ -41,9 +41,9 @@
                                 <address>
                                     <strong>JoinUs Emails</strong><br>
                                     <i class="fa fa-envelope"></i><strong>Email:</strong><a
-                                        href="mailto:contact@surfsidemedia.in"> contact@joinus.com</a><br>
+                                        href="mailto:seiniabaya@gmail.com"> contact@joinus.com</a><br>
                                     <i class="fa fa-envelope"></i><strong>Email:</strong><a
-                                        href="mailto:support@surfsidemedia.in"> support@joinus.com</a>
+                                        href="mailto:seiniabaya@gmail.com"> support@joinus.com</a>
                                 </address>
                             </aside>
                             <hr class="tall">

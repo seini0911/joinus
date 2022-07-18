@@ -18,8 +18,9 @@ class AdminAllProviders extends Component
         //inactive sproviders
         $inactiveSproviders = ServiceProvider::where('status','=','0')->count();
         $activeSproviders = ServiceProvider::where('status','=','1')->count();
+
         return view('livewire.admin.admin-all-providers',[
-            'sProviders'=>$sProviders, 
+            //'sProviders'=>$sProviders, 
             'sProvidersNumber'=>$sProvidersNumber,
             'sproviders'=>$sproviders,
             'inactivesvpnumber'=>$inactiveSproviders,

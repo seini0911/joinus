@@ -57,7 +57,7 @@
                 <div class="d-flex align-items-center">
                     <div>
                         <p class="mb-0 text-secondary">Premium</p>
-                        <h4 class="my-1 text-info">02</h4>
+                        <h4 class="my-1 text-info">0</h4>
                         <p class="mb-0 font-13"></p>
                     </div>
                     <div class="widgets-icons-2 rounded-circle bg-gradient-scooter text-white ms-auto"><i class='bx bxs-group'></i>
@@ -88,42 +88,42 @@
                 </thead>
                 <tbody>
                     <?php $i = 0; ?>
-                    @foreach($sProviders as $sprovider)
+                    @foreach($sproviders as $sprovider)
                     <?php $i++; ?>
                     <tr>
-                    <td> <?= $i; ?></td>
-                        <td>{{ $sprovider->name }}</td>
+                        <td><?= $i; ?></td>
                         <td>
-                            @if($sprovider->phone)
-                            {{ $sprovider->phone }}
-                              @else
-                              Aucun numéro
-                            @endif
-                        </td>
-                        <td>{{ $sprovider->email }}</td>
-                        <td>
-                            @if($sprovider->profile_photo_path)
-                                {{ $sprovider->profile_photo_path }}
+                            @if($sprovider->image != null)
+                                <img src="{{ asset('images/sproviders')}}/{{$sprovider->image}}" alt="Admin" class="rounded-circle p-1" width="130">
                             @else
-                                Aucune photo 
+                                <img src="{{ asset('images/sproviders/default.png')}}" alt="Admin" class="rounded-circle p-1" width="130">
                             @endif
                         </td>
-                        <td>Service y</td>
-                        <td>Non</td>
-                        <td>{{ $sprovider->created_at }}</td>
+                        <td>{{$sprovider->user['name']}}</td>
+                        <td>{{$sprovider->user['phone']}}</td>
+                        <td>{{$sprovider->user['email']}}</td>
+                        <td>{{$sprovider->service['name']}}</td>
                         <td>
-                        <div class="d-flex flex-direction-row">
-                            <div class="col">
-                                <a href="{{route('admin.activate_sprovider_account',['sprovider_id'=>$sprovider->id]) }}" class="btn btn-success"> 
-                                    <i class='bx bx-edit'></i>
-                                 </a>
+                            @if($sprovider->status)
+                                Oui
+                            @else
+                                Non
+                            @endif
+                        </td>
+                        <td>{{$sprovider->user['created_at']}}</td>
+                        <td>
+                            <div class="d-flex flex-direction-row">
+                                <div class="col">
+                                    <a href="{{route('admin.activate_sprovider_account',['sprovider_id'=>$sprovider->user['id']]) }}" class="btn btn-success"> 
+                                        <i class='bx bx-edit'></i>
+                                    </a>
+                                </div>
+                                <div class="col">
+                                    <button type="button" class="btn btn-outline-danger"><i
+                                        class='bx bx-trash'></i>
+                                    </button>
+                                </div>
                             </div>
-                            <div class="col">
-                                <button type="button" class="btn btn-outline-danger"><i
-                                    class='bx bx-trash'></i>
-                                </button>
-                            </div>
-                        </div>
                         </td>
                     </tr>
                     @endforeach

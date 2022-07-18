@@ -25,27 +25,28 @@ class EditSproviderProfileComponent extends Component
     public $service_id;
     public $service_locations;
     public $newimage;
-    public $password;
+    //public $password;
 
     public function mount()
     {
-         $sprovider = ServiceProvider::where('user_id',Auth::user()->id)->first();
-         $sprovider_from_user_table = User::where('id',Auth::user()->id)->first();
-         $this->service_provider_id = $sprovider->id;
-         $this->image = $sprovider->image;
-         $this->about = $sprovider->about;
-         $this->city = $sprovider->city;
-         $this->service_id = $sprovider->service_id;
-         $this->service_locations = $sprovider->service_location;
-         
-         $this->name = $sprovider_from_user_table->name;
-         $this->email = $sprovider_from_user_table->email;
-         $this->phone = $sprovider_from_user_table->phone;
-         $this->password = $sprovider_from_user_table->password;
+        $sprovider = ServiceProvider::where('user_id',Auth::user()->id)->first();
+        $sprovider_from_user_table = User::where('id',Auth::user()->id)->first();
+        $this->service_provider_id = $sprovider->id;
+        $this->image = $sprovider->image;
+        $this->about = $sprovider->about;
+        $this->city = $sprovider->city;
+        $this->service_id = $sprovider->service_id;
+        $this->service_locations = $sprovider->service_location;
+        
+        $this->name = $sprovider_from_user_table->name;
+        $this->email = $sprovider_from_user_table->email;
+        $this->phone = $sprovider_from_user_table->phone;
+        //$this->password = $sprovider_from_user_table->password;
     }
-
+    
     public function updateProfile()
     {
+
         $sprovider = ServiceProvider::where('user_id', Auth::user()->id)->first(); //info from the providers table
         $sprovider_from_user_table = User::where('id',Auth::user()->id)->first(); //info from the users table
 
@@ -54,28 +55,28 @@ class EditSproviderProfileComponent extends Component
             $imageName = Carbon::now()->timestamp.'.'.$this->newimage->extension();
             $this->newimage->storeAs('sproviders',$imageName);
             $sprovider->image = $imageName;
+            $sprovider_from_user_table->image = $imageName;
         }
 
         $sprovider->about = $this->about;
         $sprovider->city = $this->city;
         $sprovider->service_id = $this->service_id;
         $sprovider->service_location = $this->service_locations;
-       
         $sprovider->save(); //save in providers table
 
         $sprovider_from_user_table->name = $this->name;
         $sprovider_from_user_table->phone = $this->phone;
         $sprovider_from_user_table->email = $this->email;
-        $sprovider_from_user_table->password = Hash::make($this->password);
+        
+        //$sprovider_from_user_table->password = Hash::make($this->password);
 
         $sprovider_from_user_table->save(); //save in users table
-
         session()->flash('message','Votre profile a été mis à jour avec succès');
     }
 
     public function render()
     {
-        $services = Service::all();
+        $services = Service::where('featured','=','1')->get();
 
         return view('livewire.sprovider.edit-sprovider-profile-component',[
             'services'=>$services,

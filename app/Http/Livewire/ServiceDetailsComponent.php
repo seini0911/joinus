@@ -2,10 +2,11 @@
 
 namespace App\Http\Livewire;
 
-use App\Models\Service;
-use App\Models\ServiceProvider;
+use geoip;
 use App\Models\User;
+use App\Models\Service;
 use Livewire\Component;
+use App\Models\ServiceProvider;
 
 class ServiceDetailsComponent extends Component
 {
@@ -31,14 +32,17 @@ class ServiceDetailsComponent extends Component
                 $users[$i]['about'] = $sprovider->about;
                 $users[$i]['image'] = $sprovider->image;
                 $users[$i]['service_location'] = $sprovider->service_location;
+                $users[$i]['user_id'] = $sprovider->user_id;
                 $i++;
             }
         }
-
+        
+        $geoipInfo = geoip()->getLocation("154.72.167.75");
         return view('livewire.service-details-component',[
             'service'=>$service,
             'r_service'=>$r_service,
             'sproviders'=>$users,
+            'geoipInfo'=>$geoipInfo->toArray(),
             ])->layout('layouts.base');
     }
 }

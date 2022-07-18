@@ -17,7 +17,7 @@ class CreateServiceProvidersTable extends Migration
             $table->id();
             $table->bigInteger('user_id')->unsigned();
             $table->string('image')->nullable();
-            $table->string('about')->nullable();
+            $table->longText('about')->nullable();
             $table->string('city')->nullable();
             $table->boolean('status')->default(false);
             $table->bigInteger('service_id')->unsigned()->nullable();

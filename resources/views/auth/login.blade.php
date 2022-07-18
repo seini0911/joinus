@@ -25,7 +25,7 @@
                         </div>
                         <div class="col-xs-12 col-sm-6 col-md-6 profile1" style="min-height: 300px;">
                             <div class="thinborder-ontop">
-                                <h3 class="mb-2">Info de Connexion</h3>
+                                <h3 class="mb-2">Formulaire de connexion</h3>
                                 <x-jet-validation-errors class="mb-4" />
                                 <form id="userloginform" method="POST" action="{{ route('login') }}">                                        
                                     @csrf

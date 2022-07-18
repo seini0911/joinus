@@ -73,7 +73,17 @@
 						</li>
 					</ul>
 				</li>
-
+				<li>
+					<a class="has-arrow" href="javascript:;">
+						<div class="parent-icon"><i class='bx bxs-message'></i>
+						</div>
+						<div class="menu-title">Echanges avec les clients</div>
+					</a>
+					<ul>
+						<li> <a href="{{ route('sprovider.messages') }}"><i class="bx bx-right-arrow-alt"></i>Consulter les messages</a>
+						</li>
+					</ul>
+				</li>
 				<li class="menu-label">Mes Clients</li>
 				<li>
 					<a class="has-arrow" href="javascript:;">
@@ -264,6 +274,14 @@
             {{$slot}}
         </div>
         <!--end page wrapper -->
+		<!--start overlay-->
+		<div class="overlay toggle-icon"></div>
+		<!--end overlay-->
+		<!--Start Back To Top Button--> <a href="javaScript:;" class="back-to-top"><i class='bx bxs-up-arrow-alt'></i></a>
+		<!--End Back To Top Button-->
+		<footer class="page-footer">
+			<p class="mb-0">Copyright © 2022. All right reserved.</p>
+		</footer>
     </div>
 	<!--end wrapper-->
     <!--start switcher-->
@@ -391,6 +409,10 @@
 			table.buttons().container()
 				.appendTo( '#example2_wrapper .col-md-6:eq(0)' );
 		} );
+	</script>
+	<script>
+		new PerfectScrollbar('.chat-list');
+		new PerfectScrollbar('.chat-content');
 	</script>
 	<!--app JS-->
 	<script src="{{asset('rocketassets/assets/js/app.js')}}"></script>

@@ -137,18 +137,20 @@
                                             <input type="text" name="service_locations" class="form-control" value="" placeholder="nom du lieu de travail" wire:model="service_locations" />
                                         </div>
                                     </div>
-                                    <div class="row mb-3">
-                                        <div class="col-sm-3">
-                                            <h6 class="mb-0">Mot de passe</h6>
+                                    <!-- 
+                                        <div class="row mb-3">
+                                            <div class="col-sm-3">
+                                                <h6 class="mb-0">Mot de passe</h6>
+                                            </div>
+                                            <div class="col-sm-9 text-secondary">
+                                                <input type="password" name="password" class="form-control" value="" placeholder="Mot de passe" wire:model="password"/>
+                                            </div>
                                         </div>
-                                        <div class="col-sm-9 text-secondary">
-                                            <input type="password" name="password" class="form-control" value="" placeholder="Mot de passe" wire:model="password"/>
-                                        </div>
-                                    </div>
+                                    -->
                                     <div class="row">
                                         <div class="col-sm-3"></div>
                                         <div class="col-sm-9 text-secondary">
-                                          <button class="btn btn-success" type="submit">Mettre mon profile à jour</button>
+                                            <button class="btn btn-success" type="submit">Mettre mon profile à jour</button>
                                         </div>
                                     </div>
                                 </div>

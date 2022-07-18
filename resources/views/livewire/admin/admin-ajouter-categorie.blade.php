@@ -23,15 +23,15 @@
        <div class="col-lg-12">
           <div class="card">
               <div class="card-body">
-                  <div class="row mb-3">
-                      <div class="col-sm-3">
-                          <h6 class="mb-0">Nom de la categorie</h6>
-                      </div>
-                      <div class="col-sm-9 text-secondary">
-                          <input type="text" name="name" class="form-control" value="" placeholder="Entrer le nom de la catégorie" wire:model="name" wire:keyup="generateSlug" />
-                          @error('name')<p class="text-danger">{{$message}}</p>@enderror
+                    <div class="row mb-3">
+                        <div class="col-sm-3">
+                            <h6 class="mb-0">Nom de la categorie</h6>
                         </div>
-                  </div>
+                        <div class="col-sm-9 text-secondary">
+                            <input type="text" name="name" class="form-control" value="" placeholder="Entrer le nom de la catégorie" wire:model="name" wire:keyup="generateSlug" />
+                            @error('name')<p class="text-danger">{{$message}}</p>@enderror
+                        </div>
+                    </div>
                   <div class="row mb-3">
                       <div class="col-sm-3">
                           <h6 class="mb-0">Slug</h6>
@@ -41,18 +41,18 @@
                           @error('slug')<p class="text-danger">{{$message}}</p>@enderror
                     </div>
                   </div>
-                  <div class="row mb-3">
-                   <div class="col-sm-3">
-                       <h6 class="mb-0">Image</h6>
-                   </div>
-                   <div class="col-sm-9 text-secondary">
-                      <input type="file" name="image"  class="form-control" wire:model="image"/>
-                        @error('image')<p class="text-danger">{{$message}}</p>@enderror
-                        @if($image)
-                            <img src="{{ $image->temporaryUrl() }} " width="60" alt="" />
-                        @endif
+                    <div class="row mb-3">
+                        <div class="col-sm-3">
+                            <h6 class="mb-0">Image</h6>
+                        </div>
+                        <div class="col-sm-9 text-secondary">
+                            <input type="file" name="image"  class="form-control" wire:model="image"/>
+                                @error('image')<p class="text-danger">{{$message}}</p>@enderror
+                                @if($image)
+                                    <img src="{{ $image->temporaryUrl() }} " width="60" alt="" />
+                                @endif
+                        </div>
                     </div>
-               </div>
                   <div class="row">
                       <div class="col-sm-3"></div>
                       <div class="col-sm-9 text-secondary">

@@ -67,8 +67,11 @@
                                     <hr>
                                     <div class="col-md-12">
                                         <div class="post-content">
-                                            <h1>Les Prestataires à proximité de vous qui offrent ce service :</h1>
-                                       
+                                            @if($geoipInfo != null)
+                                            {{$geoipInfo['country']}}
+                                            @endif
+                                            <h3 class="text-primary mb-2">Les Prestataires à proximité qui offrent ce service :</h3>
+                                            <br>
                                             @if($sproviders !=null)
                                             @foreach($sproviders as $sprovider)
                                                 <div class="row">
@@ -79,7 +82,7 @@
                                                             <img src="{{ asset('images/sproviders/default.jpg')}}" alt="Admin" class="rounded-circle p-1 " width="130">
                                                         @endif
                                                     </div>
-                                                    <div class="col-md-7">
+                                                    <div class="col-md-6">
                                                         <h4><b>{{$sprovider['user']->name}}</b></h4>
                                                         <b>
                                                             <i> {{$sprovider['city']}} </i> : 
@@ -95,12 +98,11 @@
                                                             @endif
                                                         </p>
                                                     </div>
-                                                    <div class="col-md-2">
-                                                        <button class="btn btn-success">Contacter</button>
-                                                        <button class="btn btn-info">Voir son profile</button>
+                                                    <div class="col-md-3 mt-4">
+                                                        <a href="{{route('home.service_svp_profile',['user_id'=>$sprovider['user_id'] ])}}" class="btn btn-primary">Consulter son profile</a>
                                                     </div>
                                                 </div>
-                                               
+                                               <hr>
                                             @endforeach
                                         @endif
                                         </div>
@@ -119,8 +121,8 @@
                                                 <td style="border-top: none;"><span>&#36;</span> {{ $service->price }}</td>
                                             </tr>
                                             <tr>
-                                                <td>Quntity</td>
-                                                <td>1</td>
+                                                <td>Quantity</td>
+                                                <td>/</td>
                                             </tr>
                                             @php 
                                             $total = $service->price;
@@ -149,7 +151,7 @@
                                     <div class="panel-footer">
                                         <form>                                                
                                             <input type="submit" class="btn btn-primary" name="submit"
-                                                value=" Book Now">
+                                                value=" Commander ce service">
                                         </form>
                                     </div>
                                 </div>

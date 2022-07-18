@@ -10,9 +10,14 @@ class ServiceProvider extends Model
     use HasFactory;
 
     protected $fillable = ['user_id'];
-
+    protected $table = "service_providers";
     public function service()
     {
         return $this->belongsTo(Service::class,'service_id');
+    }
+
+    public function user()
+    {
+        return $this->belongsTo(User::class,'user_id');
     }
 }

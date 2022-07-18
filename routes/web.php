@@ -27,9 +27,12 @@ use App\Http\Livewire\ServiceCategoriesComponent;
 use App\Http\Livewire\ServiceDetailsComponent;
 use App\Http\Livewire\ServicesByCategoryComponent;
 use App\Http\Livewire\Sprovider\EditSproviderProfileComponent;
+use App\Http\Livewire\Sprovider\SproviderAddRealisationComponent;
 use App\Http\Livewire\Sprovider\SproviderDashboardComponent;
+use App\Http\Livewire\Sprovider\SproviderMessages;
 use App\Http\Livewire\Sprovider\SproviderProfileComponent;
 use App\Http\Livewire\Sprovider\SproviderRealisationsComponent;
+use App\Http\Livewire\ViewSproviderProfileComponent;
 use App\Models\SproviderRealisation;
 
 /*
@@ -53,6 +56,7 @@ Route::get('/', HomeComponent::class)->name('home');
 Route::get('/service-categories', ServiceCategoriesComponent::class)->name('home.service_categories');
 Route::get('/{category_slug}/services',ServicesByCategoryComponent::class)->name('home.services_by_category');
 Route::get('/service/{service_slug}',ServiceDetailsComponent::class)->name('home.service_details');
+Route::get('/service/prestataire/{user_id}',ViewSproviderProfileComponent::class)->name('home.service_svp_profile');
 Route::get('/autocomplete', [SearchController::class,'autoComplete'])->name('autocomplete');
 Route::post('/search',[SearchController::class,'searchService'])->name('searchService');
 Route::get('/contactez-nous',ContactComponent::class)->name('home.contact');
@@ -80,6 +84,8 @@ Route::middleware([
     Route::get('/sprovider/profile', SproviderProfileComponent::class)->name('sprovider.profile');
     Route::get('/sprovider/profile/edit',EditSproviderProfileComponent::class)->name('sprovider.edit_profile');
     Route::get('/sprovider/realisations',SproviderRealisationsComponent::class)->name('sprovider.realisations');
+    Route::get('/sprovider/add/realisation',SproviderAddRealisationComponent::class)->name('sprovider.add_realisation');
+    Route::get('/sprovider/messages', SproviderMessages::class)->name('sprovider.messages');
 });
 
 //For admin
@@ -100,7 +106,6 @@ Route::middleware([
     Route::get('/admin/service/edit/{service_slug}', AdminEditServiceComponent::class)->name('admin.edit_service');
     
     Route::get('/contact',AdminContactComponent::class)->name('admin.contacts');
-
     // route to activate a service providers' profile
     Route::get('/admin/sprovider/activate/{sprovider_id}', AdminActivateSproviderAccountComponent::class)->name('admin.activate_sprovider_account');
     //getting all providers
